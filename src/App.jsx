@@ -57,7 +57,7 @@ function App() {
       </div>
       <div className="hero-portrait" data-depth>
         <div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /></div>
-        <div className={`portrait-name-wrap name-style-${nameStyle}`} aria-label="Hatem"><span className="portrait-name-live">{["HΛTEM","HATΞM","HATEM","H·A·T·E·M","H4TEM","HATEM."][nameStyle]}</span><span className="portrait-name-arrow" aria-hidden="true">↗</span></div>
+        <div className={`portrait-name-wrap name-style-${nameStyle}`} aria-label="Hatem"><span className="portrait-name-live">{["HΛTEM","HATΞM","HATEM","H·A·T·E·M","H4TEM","HATEM."][nameStyle]}</span><span className="portrait-name-arrow" aria-hidden="true">↗</span><span className="portrait-name-track" aria-hidden="true"/></div>
       </div>
       <div className="hero-orbit" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div><span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span></div>
       <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
