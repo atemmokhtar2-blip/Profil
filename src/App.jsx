@@ -49,6 +49,19 @@ function App() {
 
     <section id="top" className="hero">
       <div className="hero-grid"/>
+      <div className="spider-ambience" aria-hidden="true">
+        <div className="spider-drop-line"/>
+        <div className="spider">
+          <i className="leg l1"/><i className="leg l2"/><i className="leg l3"/><i className="leg l4"/>
+          <i className="leg r1"/><i className="leg r2"/><i className="leg r3"/><i className="leg r4"/>
+          <b/>
+        </div>
+        <div className="welcome-web">
+          <span className="web-radial r1"/><span className="web-radial r2"/><span className="web-radial r3"/><span className="web-radial r4"/>
+          <span className="web-ring ring1"/><span className="web-ring ring2"/><span className="web-ring ring3"/>
+          <strong>أهلاً بك</strong>
+        </div>
+      </div>
       <div className="hero-portrait" data-depth>
         <div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /></div>
       </div>
