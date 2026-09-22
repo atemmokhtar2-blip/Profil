@@ -113,3 +113,80 @@ html,body,#root,.site{background:#000!important;background-color:#000!important}
 @media(prefers-reduced-motion:reduce){
   .portrait-name-live{animation:none;transition:none}
 }
+
+
+/* Dynamic identity frame + matching arrow */
+.portrait-name-wrap{
+  position:relative;
+  margin-top:10px;
+  min-width:190px;
+  min-height:50px;
+  padding:9px 38px 9px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid currentColor;
+  background:rgba(0,0,0,.72);
+  box-shadow:0 0 0 1px rgba(255,255,255,.025),0 12px 35px rgba(0,0,0,.32),0 0 28px color-mix(in srgb,currentColor 18%,transparent);
+  transition:all .55s cubic-bezier(.16,1,.3,1);
+  overflow:visible;
+}
+.portrait-name-wrap:before,
+.portrait-name-wrap:after{
+  content:"";
+  position:absolute;
+  width:7px;
+  height:7px;
+  border:1px solid currentColor;
+  background:#000;
+  transition:all .55s ease;
+}
+.portrait-name-wrap:before{left:-4px;top:-4px}
+.portrait-name-wrap:after{right:-4px;bottom:-4px}
+.portrait-name-live{
+  margin:0;
+  min-height:0;
+  display:block;
+  line-height:1;
+  white-space:nowrap;
+  font-size:clamp(22px,2.8vw,34px);
+  font-weight:800;
+  letter-spacing:.06em;
+  transition:color .45s ease,transform .55s cubic-bezier(.16,1,.3,1),filter .45s ease,letter-spacing .55s ease;
+  animation:nameMarkPulse 2.6s ease-in-out infinite;
+  text-shadow:0 0 22px currentColor;
+}
+.portrait-name-arrow{
+  position:absolute;
+  right:11px;
+  top:50%;
+  transform:translateY(-50%);
+  font:700 20px/1 Manrope,sans-serif;
+  color:currentColor;
+  transition:all .55s cubic-bezier(.16,1,.3,1);
+}
+.name-style-0{color:#ff3045;font-family:Georgia,"Times New Roman",serif;font-style:italic;letter-spacing:.02em}
+.name-style-0 .portrait-name-wrap{border-radius:0;transform:skewX(-5deg)}
+.name-style-0 .portrait-name-arrow{transform:translateY(-50%) rotate(-8deg)}
+.name-style-1{color:#ff8a00;font-family:"DM Mono",monospace;letter-spacing:.14em}
+.name-style-1 .portrait-name-wrap{border-style:dashed;border-radius:2px}
+.name-style-1 .portrait-name-arrow{transform:translateY(-50%) rotate(45deg)}
+.name-style-2{color:#38bdf8;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:.18em}
+.name-style-2 .portrait-name-wrap{border-radius:18px;clip-path:polygon(0 0,94% 0,100% 50%,94% 100%,0 100%,4% 50%)}
+.name-style-2 .portrait-name-arrow{transform:translateY(-50%) rotate(12deg)}
+.name-style-3{color:#f4f1ea;font-family:Georgia,"Times New Roman",serif;font-weight:800;letter-spacing:.08em}
+.name-style-3 .portrait-name-wrap{border-width:2px;border-radius:0;background:rgba(244,241,234,.04)}
+.name-style-3 .portrait-name-arrow{font-size:24px}
+.name-style-4{color:#a855f7;font-family:Manrope,sans-serif;font-style:italic;letter-spacing:.03em}
+.name-style-4 .portrait-name-wrap{border-radius:999px;border-style:dotted;padding-left:24px}
+.name-style-4 .portrait-name-arrow{transform:translateY(-50%) rotate(-25deg)}
+.name-style-5{color:#39ff88;font-family:"DM Mono",monospace;font-size:.78em;letter-spacing:.22em}
+.name-style-5 .portrait-name-wrap{border-color:#39ff88;border-radius:0;border-style:double;box-shadow:0 0 22px rgba(57,255,136,.12)}
+.name-style-5 .portrait-name-arrow{font-family:"DM Mono";font-size:17px}
+.portrait-name-wrap:hover{transform:translateY(-2px) scale(1.025)}
+.portrait-name-wrap:hover .portrait-name-arrow{transform:translateY(-50%) translate(2px,-2px) rotate(0deg)}
+@media(max-width:850px){
+  .portrait-name-wrap{min-width:175px;min-height:46px;padding:8px 35px 8px 17px;margin-top:9px}
+  .portrait-name-live{font-size:clamp(20px,6.5vw,30px)}
+  .portrait-name-arrow{right:10px;font-size:18px}
+}
