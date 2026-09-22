@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ArrowUpRight, Code2, Github, Terminal, Shield, Cpu, Sparkles, ExternalLink, MessageCircle } from "lucide-react";
 
 const projects = [
-  { n:"01", title:"Lumen", type:"Ecosystem / Automation", text:"A large-scale bot ecosystem built around automation, intelligent interactions and a modular architecture.", tags:["Node.js","Bots","Architecture"], href:"https://github.com/atemmokhtar2-blip" },
+  { n:"01", title:"Lumen", type:"Ecosystem / Automation", text:"A Telegram bot generation and hosting platform powered by a multi-tool programming agent. Lumen collects a user's requirements inside Telegram, builds projects in isolated workspaces, routes generation through a unified model catalog, streams live progress, runs smoke tests before delivery, and can provide persistent hosting through Lumen Pro. The architecture includes Redis-backed sessions, an Engine UI state machine, model routing, multi-agent workflows, isolated hosting, usage controls, billing and a dedicated B2B API.", tags:["Python","Telegram","LLM Agents","Redis","API","Docker"], href:"https://github.com/atemmokhtar2-blip/Lumen_bot/tree/Lumen" },
   { n:"02", title:"Bot Systems", type:"Engineering", text:"Custom bots and backend systems designed to turn repetitive workflows into reliable software.", tags:["JavaScript","APIs","Backend"], href:"https://github.com/atemmokhtar2-blip" },
   { n:"03", title:"Security Lab", type:"Research / Learning", text:"Experiments around application security, defensive engineering and understanding how systems break.", tags:["Security","Linux","Web"], href:"https://github.com/atemmokhtar2-blip" }
 ];
