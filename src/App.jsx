@@ -96,7 +96,7 @@ function App() {
     <div className={intro ? "intro-screen" : "intro-screen intro-screen-out"} aria-hidden="true"><div className="intro-name">{[..."HATEM"].slice(0, introLetters).map((letter, i) => <span key={letter + i}>{letter}</span>)}</div></div>
     <div className="noise" /><div className="scroll-progress" aria-hidden="true"><i/></div>
     <nav>
-      <a className="brand" href="#top"><span>H</span>M<span className="dot">.</span></a>
+      <a className="brand" href="#top"><span>H</span>M<span className="dot">.</span><i className="brand-ring brand-ring-1"/><i className="brand-ring brand-ring-2"/><i className="brand-ring brand-ring-3"/><i className="brand-ring brand-ring-4"/><i className="brand-ring brand-ring-5"/></a>
       <div className="navlinks"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
     </nav>
 
