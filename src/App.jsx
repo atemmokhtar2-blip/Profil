@@ -109,7 +109,7 @@ function App() {
       </div>
       <div className="hero-portrait" data-depth>
         <div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /></div>
-        <div className="portrait-name">حاتم</div>
+        <div className="portrait-name">Hatem<i className="brand-ring brand-ring-1"/><i className="brand-ring brand-ring-2"/><i className="brand-ring brand-ring-3"/><i className="brand-ring brand-ring-4"/><i className="brand-ring brand-ring-5"/></div>
       </div>
       <div className="hero-orbit" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div><span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span></div>
       <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
