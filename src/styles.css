@@ -62,3 +62,10 @@ nav{padding:0 5vw}.navlinks{display:none}.status{font-size:8px}.hero{padding:145
 @keyframes spinName{to{transform:rotate(360deg)}}@keyframes spinNameReverse{to{transform:rotate(-360deg)}}
 @media(max-width:850px){.portrait-name-spin{width:76px;height:76px;margin-top:16px;font-size:16px}}
 @media(prefers-reduced-motion:reduce){.portrait-name-spin,.portrait-name-spin:before{animation:none}}
+
+/* Minimal portrait name: no circle, no data labels */
+.portrait-name-spin{margin-top:18px;width:auto;height:auto;border:0!important;border-radius:0!important;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;font-size:24px;letter-spacing:.01em;color:#f4f1ea;position:relative;display:block;animation:nameSway 2.2s ease-in-out infinite alternate!important}
+.portrait-name-spin:before,.portrait-name-spin:after{display:none!important}
+@keyframes nameSway{0%{transform:translateX(-22px) rotate(-4deg)}100%{transform:translateX(22px) rotate(4deg)}}
+@media(max-width:850px){.portrait-name-spin{margin-top:16px;font-size:22px}}
+@media(prefers-reduced-motion:reduce){.portrait-name-spin{animation:none!important}}
