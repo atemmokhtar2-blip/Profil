@@ -567,43 +567,39 @@ html,body,#root,.site{background:#000!important;background-color:#000!important}
 
 
 
-/* Stable scroll reveal: reveal the complete text without splitting Arabic glyphs */
+
+/* Final clean scroll reveal */
 .scroll-reveal{
-  display:inline;
+  display:inline-block;
   position:relative;
-  unicode-bidi:plaintext;
-}
-.scroll-reveal-text{
-  display:inline;
-  clip-path:inset(0 100% 0 0);
-  -webkit-clip-path:inset(0 100% 0 0);
+  max-width:100%;
+  clip-path:var(--reveal-clip);
+  -webkit-clip-path:var(--reveal-clip);
   will-change:clip-path;
 }
 .projects-heading p .scroll-reveal,
 .project-main p .scroll-reveal{
+  display:block;
+  width:100%;
   direction:rtl;
+  text-align:right;
   unicode-bidi:plaintext;
   white-space:normal;
   overflow-wrap:anywhere;
+  word-break:normal;
+  line-height:inherit;
 }
-.project-main h3 .scroll-reveal,
-.project-type .scroll-reveal,
-.project-tags .scroll-reveal,
-.hero-tags .scroll-reveal{
+.project-main h3 .scroll-reveal{
   direction:ltr;
   unicode-bidi:plaintext;
 }
-.project-main p{
-  max-width:650px;
-  line-height:1.9;
-  white-space:normal;
-  overflow-wrap:anywhere;
-  word-break:normal;
+.project-type .scroll-reveal{
+  direction:rtl;
+  unicode-bidi:plaintext;
 }
-.projects-heading p{
-  white-space:normal;
-  overflow-wrap:anywhere;
-  word-break:normal;
+.hero-tags .scroll-reveal,
+.project-tags .scroll-reveal{
+  direction:ltr;
 }
 .project-card{
   opacity:1!important;
@@ -613,31 +609,48 @@ html,body,#root,.site{background:#000!important;background-color:#000!important}
 }
 .project-tags{
   display:flex;
-  gap:7px;
+  gap:18px;
   flex-wrap:wrap;
+  align-items:center;
 }
 .project-tags > span{
+  font:9px "DM Mono";
+  color:#777;
+  border:0!important;
+  padding:0!important;
+  background:transparent!important;
+}
+.hero-tags > span{
   border:1px solid #292a2f;
-  padding:7px 9px;
+  padding:7px 10px;
 }
-.project-tags .scroll-reveal-text{
+.hero-tags > span .scroll-reveal{
   border:0!important;
   padding:0!important;
-  background:transparent!important;
 }
-.hero-tags > span .scroll-reveal-text{
-  border:0!important;
-  padding:0!important;
-  background:transparent!important;
+.projects-heading p{
+  width:100%;
+  max-width:430px;
+  margin:0;
+}
+.project-main p{
+  width:100%;
+  max-width:650px;
+  margin:0 0 22px;
 }
 @media(max-width:850px){
+  .projects-heading p{
+    max-width:100%;
+    text-align:right;
+    line-height:1.9;
+  }
   .project-main p{
     max-width:100%;
     font-size:14px;
     line-height:2;
+    text-align:right;
   }
-  .projects-heading p{
-    max-width:100%;
-    line-height:1.9;
+  .project-tags{
+    gap:16px;
   }
 }
