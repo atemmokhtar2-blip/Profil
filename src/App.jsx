@@ -49,31 +49,6 @@ function App() {
 
     <section id="top" className="hero">
       <div className="hero-grid"/>
-      <div className="spider-ambience" aria-hidden="true">
-        <div className="spider-drop-line"/>
-        <div className="spider-real">
-          <svg viewBox="0 0 160 150" role="img" aria-label="spider">
-            <defs><radialGradient id="spiderGlow"><stop offset="0" stopColor="#fff"/><stop offset=".55" stopColor="#e9edf2"/><stop offset="1" stopColor="#9aa3ad"/></radialGradient></defs>
-            <g className="spider-legs" fill="none" stroke="#f4f1ea" strokeWidth="3" strokeLinecap="round">
-              <path d="M68 54 C47 39 28 25 8 17 C25 36 37 49 55 61 C35 57 19 56 4 59 C23 68 39 69 57 69 C39 78 24 90 12 104 C31 96 48 85 62 75 C54 97 51 113 51 130 C61 111 66 96 70 79"/>
-              <path d="M92 54 C113 39 132 25 152 17 C135 36 123 49 105 61 C125 57 141 56 156 59 C137 68 121 69 103 69 C121 78 136 90 148 104 C129 96 112 85 98 75 C106 97 109 113 109 130 C99 111 94 96 90 79"/>
-            </g>
-            <ellipse cx="80" cy="91" rx="25" ry="42" fill="#090a0d" stroke="#f4f1ea" strokeWidth="2"/>
-            <ellipse cx="80" cy="55" rx="20" ry="17" fill="url(#spiderGlow)" stroke="#f4f1ea" strokeWidth="2"/>
-            <ellipse cx="73" cy="51" rx="4" ry="3" fill="#111"/><ellipse cx="87" cy="51" rx="4" ry="3" fill="#111"/>
-            <path d="M67 105 Q80 116 93 105" fill="none" stroke="#b9c0c8" strokeWidth="2" opacity=".8"/>
-            <path d="M72 118 Q80 126 88 118" fill="none" stroke="#707982" strokeWidth="2" opacity=".65"/>
-          </svg>
-        </div>
-        <div className="welcome-web">
-          <span className="web-radial r1"/><span className="web-radial r2"/><span className="web-radial r3"/><span className="web-radial r4"/>
-          <span className="web-ring ring1"/><span className="web-ring ring2"/><span className="web-ring ring3"/>
-          <strong>أهلاً بك</strong>
-        </div>
-      </div>
-      <div className="hero-portrait" data-depth>
-        <div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /></div>
-      </div>
       <div className="hero-copy">
         <h1>I build things<br/><em>that feel alive.</em></h1>
         <p className="lead"><span className="hero-name-mark">Hatem Mokhtar</span><span className="hero-name-sep"> — </span>a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
