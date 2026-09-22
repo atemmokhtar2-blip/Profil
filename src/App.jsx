@@ -7,6 +7,28 @@ const projects = [
 
 const stack = ["JavaScript","TypeScript","Node.js","Python","Discord.js","Git","Linux","APIs","Automation","Cybersecurity"];
 
+function ScrollRevealText({ children, className = "", start = 0.96, end = 0.38 }) {
+  const text = String(children);
+  const [visible, setVisible] = useState(0);
+
+  useEffect(() => {
+    const update = () => {
+      const el = document.querySelector(`[data-reveal-id="${CSS.escape(text)}"]`);
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const viewport = window.innerHeight;
+      const progress = Math.max(0, Math.min(1, (viewport * start - rect.top) / (viewport * (start - end))));
+      setVisible(Math.floor(text.length * progress));
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+    return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
+  }, [text, start, end]);
+
+  return <span className={className} data-reveal-id={text} aria-label={text}>{[...text].map((char, i) => <span key={i} className="scroll-char">{i < visible ? char : char === " " ? "\u00a0" : ""}</span>)}</span>;
+}
+
 function App() {
   const [time, setTime] = useState(new Date());
   const [intro, setIntro] = useState(true);
@@ -65,9 +87,9 @@ function App() {
     <section id="top" className="hero">
       <div className="hero-grid"/>
       <div className="hero-copy">
-        <h1>I build things<br/><em>that feel alive.</em></h1>
-        <p className="lead"><span className="hero-name-mark">Hatem Mokhtar</span><span className="hero-name-sep"> — </span>a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
-        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary whatsapp-handle" href="https://wa.me/h_a_t_e_m_7" aria-label="WhatsApp @h_a_t_e_m_7"><MessageCircle size={17}/> @h_a_t_e_m_7</a></div><div className="hero-tags"><span>BOTS</span><span>SOFTWARE</span><span>SECURITY</span></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
+        <h1><ScrollRevealText>I build things</ScrollRevealText><br/><em><ScrollRevealText>that feel alive.</ScrollRevealText></em></h1>
+        <p className="lead"><ScrollRevealText className="hero-name-mark">Hatem Mokhtar</ScrollRevealText><span className="hero-name-sep"> — </span><ScrollRevealText>a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</ScrollRevealText></p>
+        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary whatsapp-handle" href="https://wa.me/h_a_t_e_m_7" aria-label="WhatsApp @h_a_t_e_m_7"><MessageCircle size={17}/> @h_a_t_e_m_7</a></div><div className="hero-tags"><span><ScrollRevealText>BOTS</ScrollRevealText></span><span><ScrollRevealText>SOFTWARE</ScrollRevealText></span><span><ScrollRevealText>SECURITY</ScrollRevealText></span></div><div className="hero-coordinates"><ScrollRevealText>29.98° N / 31.13° E</ScrollRevealText> <span>—</span> <ScrollRevealText>BUILD MODE</ScrollRevealText></div>
       </div>
       <div className="hero-portrait" data-depth>
         <div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /></div>
@@ -86,18 +108,14 @@ function App() {
       </div>
       <div className="project-list">
         {projects.map((project) => {
-          const titleProgress = Math.max(0, Math.min(1, projectProgress * 1.65));
-          const visibleTitle = Math.floor(project.title.length * titleProgress);
-          const textProgress = Math.max(0, Math.min(1, (projectProgress - 0.22) / 0.78));
-          const visibleText = Math.floor(project.text.length * textProgress);
           return (
             <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.n} style={{"--project-progress": projectProgress}}>
               <span className="project-number">{project.n}</span>
               <div className="project-main">
-                <span className="project-type">{project.type}</span>
-                <h3 aria-label={project.title}>{project.title.slice(0, visibleTitle)}<ArrowUpRight size={22}/></h3>
-                <p aria-label={project.text}>{project.text.slice(0, visibleText)}</p>
-                <div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+                <span className="project-type"><ScrollRevealText>{project.type}</ScrollRevealText></span>
+                <h3><ScrollRevealText>{project.title}</ScrollRevealText><ArrowUpRight size={22}/></h3>
+                <p><ScrollRevealText start={0.86} end={0.30}>{project.text}</ScrollRevealText></p>
+                <div className="project-tags">{project.tags.map(tag => <span key={tag}><ScrollRevealText>{tag}</ScrollRevealText></span>)}</div>
               </div>
             </a>
           );
