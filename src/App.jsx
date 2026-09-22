@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ArrowUpRight, Code2, Github, Terminal, Shield, Cpu, Sparkles, ExternalLink, MessageCircle } from "lucide-react";
 
 const projects = [
-  { n:"01", title:"Lumen", type:"منصة أتمتة وتوليد", text:"منصة متكاملة لإنشاء واستضافة بوتات تيليجرام من داخل المحادثة. يفهم Lumen متطلبات المستخدم بالعربية أو الإنجليزية، ثم يحولها إلى مشروع برمجي حقيقي داخل بيئة معزولة. يعتمد على وكيل برمجي متعدد الأدوات يمر بمراحل التخطيط والتنفيذ والمراجعة والإصلاح، مع نظام موحد لاختيار نماذج الذكاء الاصطناعي، جلسات مدعومة بـ Redis، متابعة مباشرة لتقدم البناء، واختبارات تشغيل قبل تسليم المشروع. كما يدعم الاستضافة المستمرة عبر Lumen Pro، وإدارة الاستخدام والفوترة وواجهة API مخصصة للأعمال.", tags:["Python","Telegram","وكلاء AI","Redis","API","Docker"], href:"https://t.me/lum9n_ai_bot" },
-  { n:"02", title:"Bot Systems", type:"هندسة برمجية", text:"أنظمة وبوتات مخصصة لتحويل المهام المتكررة وسير العمل المعقد إلى حلول برمجية عملية وقابلة للتوسع.", tags:["JavaScript","APIs","Backend"], href:"https://github.com/atemmokhtar2-blip" },
-  { n:"03", title:"Security Lab", type:"بحث وتجارب", text:"تجارب ودراسات عملية في أمن التطبيقات والهندسة الدفاعية وفهم طريقة عمل الأنظمة ونقاط الضعف فيها.", tags:["Security","Linux","Web"], href:"https://github.com/atemmokhtar2-blip" }
+  { n:"01", title:"Lumen", type:"منصة أتمتة وتوليد", text:"منصة متكاملة لإنشاء واستضافة بوتات تيليجرام من داخل المحادثة. يفهم Lumen متطلبات المستخدم بالعربية أو الإنجليزية، ثم يحولها إلى مشروع برمجي حقيقي داخل بيئة معزولة. يعتمد على وكيل برمجي متعدد الأدوات يمر بمراحل التخطيط والتنفيذ والمراجعة والإصلاح، مع نظام موحد لاختيار نماذج الذكاء الاصطناعي، جلسات مدعومة بـ Redis، متابعة مباشرة لتقدم البناء، واختبارات تشغيل قبل تسليم المشروع. كما يدعم الاستضافة المستمرة عبر Lumen Pro، وإدارة الاستخدام والفوترة وواجهة API مخصصة للأعمال.", tags:["Python","Telegram","وكلاء AI","Redis","API","Docker"], href:"https://t.me/lum9n_ai_bot" }
 ];
 
 const stack = ["JavaScript","TypeScript","Node.js","Python","Discord.js","Git","Linux","APIs","Automation","Cybersecurity"];
@@ -65,7 +63,7 @@ function App() {
     <section id="work" className="projects-section">
       <div className="projects-heading">
         <div>
-          <span className="section-kicker">SELECTED WORK / 01—03</span>
+          <span className="section-kicker">SELECTED WORK / 01</span>
           <h2>المشاريع<span>.</span></h2>
         </div>
         <p>أفكار تتحول إلى أنظمة حقيقية — من البوتات والأتمتة إلى البرمجيات والهندسة الأمنية.</p>
