@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
-:root{font-family:Manrope,system-ui,sans-serif;color:#f4f1ea;background:#08090d;font-synthesis:none;--muted:#8e8d91;--line:#27282e;--acid:#ff3045}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#08090d}a{color:inherit;text-decoration:none}body.intro-lock{overflow:hidden}
+:root{--bg:#000;--panel:#050505;--text:#f4f1ea;--muted:#777;--line:#1a1a1a;--acid:#ff3045}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#000!important;color:var(--text);font-family:Manrope,system-ui,sans-serif}a{color:inherit;text-decoration:none}body.intro-lock{overflow:hidden}
 main{overflow:hidden;position:relative}
 .intro-screen{position:fixed;inset:0;z-index:100;background:#08090d;display:flex;align-items:center;justify-content:center;animation:introReveal 3.6s cubic-bezier(.76,0,.24,1) forwards}
 .intro-name{display:flex;align-items:center;justify-content:center;font-size:clamp(100px,25vw,390px);font-weight:800;letter-spacing:-.105em;line-height:.72;color:#f4f1ea;white-space:nowrap}
@@ -72,3 +72,5 @@ nav{padding:0 5vw}.navlinks{display:none}.status{font-size:8px}.hero{padding:145
 
 
 html,body,#root,.site{background:#000!important;background-color:#000!important}
+
+*,*::before,*::after{box-sizing:border-box}html,body,#root,.site{background:#000!important;background-color:#000!important}.hero,.about,.work,.capabilities,.contact,.ticker,footer{background-color:#000!important}
