@@ -21,28 +21,35 @@ function ScrollRevealText({ children, className = "", start = 0.92, end = 0.38 }
       const viewport = window.innerHeight;
       const trigger = viewport * start;
       const finish = viewport * end;
-      const distance = Math.max(220, trigger - finish);
-      const p = Math.max(0, Math.min(1, (trigger - rect.top) / distance));
-      setProgress(p);
+      const distance = Math.max(260, trigger - finish);
+      const raw = Math.max(0, Math.min(1, (trigger - rect.top) / distance));
+      const steps = Math.max(1, text.length);
+      setProgress(Math.floor(raw * steps) / steps);
     };
+
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     update();
+
     return () => {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [start, end]);
+  }, [text, start, end]);
 
-  const reveal = isArabic
+  const clip = isArabic
     ? `inset(0 0 0 ${Math.round((1 - progress) * 100)}%)`
     : `inset(0 ${Math.round((1 - progress) * 100)}% 0 0)`;
 
   return (
-    <span ref={ref} className={`scroll-reveal ${className}`} dir={isArabic ? "rtl" : "ltr"}>
-      <span className="scroll-reveal-text" style={{ clipPath: reveal, WebkitClipPath: reveal }}>
-        {text}
-      </span>
+    <span
+      ref={ref}
+      className={`scroll-reveal ${className}`}
+      dir={isArabic ? "rtl" : "ltr"}
+      style={{ "--reveal-clip": clip }}
+      aria-label={text}
+    >
+      {text}
     </span>
   );
 }
