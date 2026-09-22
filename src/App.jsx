@@ -125,10 +125,10 @@ function App() {
       <div className="project-list">
         {projects.map((project) => {
           return (
-            <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.n}>
+            <a className={`project-card project-${project.title.toLowerCase()}`} href={project.href} target="_blank" rel="noreferrer" key={project.n}>
               <span className="project-number">{project.n}</span>
               <div className="project-main">
-                <span className="project-type"><ScrollRevealText>{project.type}</ScrollRevealText></span>
+                <span className="project-state">LIVE / TELEGRAM</span><span className="project-type"><ScrollRevealText>{project.type}</ScrollRevealText></span>
                 <h3><ScrollRevealText>{project.title}</ScrollRevealText><ArrowUpRight size={22}/></h3>
                 <p><ScrollRevealText start={0.86} end={0.30}>{project.text}</ScrollRevealText></p>
                 <div className="project-tags">{project.tags.map(tag => <span key={tag}><ScrollRevealText>{tag}</ScrollRevealText></span>)}</div>
