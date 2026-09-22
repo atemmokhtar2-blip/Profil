@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ArrowUpRight, Code2, Github, Terminal, Shield, Cpu, Sparkles, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Code2, Github, Terminal, Shield, Cpu, Sparkles, ExternalLink, MessageCircle } from "lucide-react";
 
 const projects = [
   { n:"01", title:"Lumen", type:"Ecosystem / Automation", text:"A large-scale bot ecosystem built around automation, intelligent interactions and a modular architecture.", tags:["Node.js","Bots","Architecture"], href:"https://github.com/atemmokhtar2-blip" },
@@ -52,7 +52,7 @@ function App() {
       <div className="hero-copy">
         <h1>I build things<br/><em>that feel alive.</em></h1>
         <p className="lead"><span className="hero-name-mark">Hatem Mokhtar</span><span className="hero-name-sep"> — </span>a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
-        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href="https://github.com/atemmokhtar2-blip"><Github size={17}/> GitHub</a></div><div className="hero-tags"><span>BOTS</span><span>SOFTWARE</span><span>SECURITY</span></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
+        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary whatsapp-handle" href="https://wa.me/" aria-label="WhatsApp @h_a_t_e_m_7"><MessageCircle size={17}/> @h_a_t_e_m_7</a></div><div className="hero-tags"><span>BOTS</span><span>SOFTWARE</span><span>SECURITY</span></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
       </div>
       <div className="hero-portrait" data-depth>
         <div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /></div>
