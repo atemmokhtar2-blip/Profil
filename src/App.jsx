@@ -39,7 +39,7 @@ function App() {
       <div className="intro-line intro-line-top"><span>HM / 001</span><span>EST. 2007</span></div>
       <div className="intro-name">{[..."HATEM"].map((letter, i) => <span key={letter + i} style={{"--i": i}}>{letter}</span>)}</div>
       <div className="intro-line intro-line-bottom"><span>DIGITAL ARCHITECT</span><span>ENTER / 2026</span></div>
-      <div className="intro-progress"><i/></div>
+      
     </div>
     <div className="noise" /><div className="scroll-progress" aria-hidden="true"><i/></div>
     <nav>
