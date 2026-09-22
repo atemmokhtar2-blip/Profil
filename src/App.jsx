@@ -44,7 +44,6 @@ function App() {
     <nav>
       <a className="brand" href="#top"><span>H</span>ATEM<span className="dot">.</span></a>
       <div className="navlinks"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-
     </nav>
 
     <section id="top" className="hero">
@@ -52,7 +51,7 @@ function App() {
       <div className="hero-copy">
         <h1>I build things<br/><em>that feel alive.</em></h1>
         <p className="lead"><span className="hero-name-mark">Hatem Mokhtar</span><span className="hero-name-sep"> — </span>a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
-        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary whatsapp-handle" href="https://wa.me/" aria-label="WhatsApp @h_a_t_e_m_7"><MessageCircle size={17}/> @h_a_t_e_m_7</a></div><div className="hero-tags"><span>BOTS</span><span>SOFTWARE</span><span>SECURITY</span></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
+        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary whatsapp-handle" href="https://wa.me/h_a_t_e_m_7" aria-label="WhatsApp @h_a_t_e_m_7"><MessageCircle size={17}/> @h_a_t_e_m_7</a></div><div className="hero-tags"><span>BOTS</span><span>SOFTWARE</span><span>SECURITY</span></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
       </div>
       <div className="hero-portrait" data-depth>
         <div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /></div>
@@ -60,7 +59,6 @@ function App() {
       <div className="hero-orbit" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div><span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span></div>
       <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
     </section>
-
   </main>
 }
 
