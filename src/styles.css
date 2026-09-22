@@ -566,39 +566,19 @@ html,body,#root,.site{background:#000!important;background-color:#000!important}
 .project-card.is-visible{opacity:1;transform:translateY(0);filter:blur(0)}
 
 
-/* Clean character-by-character reveal: inner characters must never inherit UI chip styles */
-.scroll-char{
-  display:inline;
-  border:0!important;
-  padding:0!important;
-  margin:0!important;
-  background:transparent!important;
-  box-shadow:none!important;
-  white-space:normal!important;
-}
-.hero-tags > span{
-  border:1px solid #2a2b30;
-  padding:7px 10px;
-}
-.hero-tags > span .scroll-char{
-  border:0!important;
-  padding:0!important;
-}
-.project-tags > span{
-  font:9px "DM Mono";
-  color:#777;
-  border:1px solid #292a2f;
-  padding:7px 9px;
-}
-.project-tags > span .scroll-char{
-  border:0!important;
-  padding:0!important;
-}
+/* Clean text reveal */
+.projects-heading p,
 .project-main p{
+  direction:rtl;
+  unicode-bidi:plaintext;
   white-space:normal!important;
   overflow-wrap:anywhere;
-  word-break:normal;
 }
-.project-main p .scroll-char{
-  white-space:normal!important;
+.project-main h3,
+.project-type,
+.project-tags{
+  direction:ltr;
+}
+.project-card{
+  overflow:hidden;
 }
