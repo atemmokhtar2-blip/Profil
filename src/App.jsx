@@ -53,7 +53,7 @@ function App() {
       <div className="hero-copy">
         <p className="eyebrow"><Terminal size={14}/> DIGITAL ARCHITECT / 001</p><div className="hero-system"><span>SYSTEM <b>ONLINE</b></span><span>NODE / SECURITY / AUTOMATION</span></div>
         <h1>I build things<br/><em>that feel alive.</em></h1>
-        <p className="lead">I'm Hatem Mokhtar — a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
+        <p className="lead"><span className="hero-name-mark">Hatem Mokhtar</span><span className="hero-name-sep"> — </span>a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
         <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href="https://github.com/atemmokhtar2-blip"><Github size={17}/> GitHub</a></div><div className="hero-tags"><span>BOTS</span><span>SOFTWARE</span><span>SECURITY</span></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
       </div>
       <div className="hero-orbit" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div><span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span></div>
