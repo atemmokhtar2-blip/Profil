@@ -11,9 +11,22 @@ const stack = ["JavaScript","TypeScript","Node.js","Python","Discord.js","Git","
 
 function App() {
   const [time, setTime] = useState(new Date());
-  useEffect(() => { const id=setInterval(()=>setTime(new Date()),1000); return()=>clearInterval(id); }, []);
+  const [intro, setIntro] = useState(true);
+  useEffect(() => {
+    const id=setInterval(()=>setTime(new Date()),1000);
+    const reveal=setTimeout(()=>setIntro(false),3200);
+    document.body.classList.add("intro-lock");
+    const unlock=setTimeout(()=>document.body.classList.remove("intro-lock"),3000);
+    return()=>{clearInterval(id);clearTimeout(reveal);clearTimeout(unlock);document.body.classList.remove("intro-lock");};
+  }, []);
 
-  return <main>
+  return <main className={intro ? "site intro-active" : "site"}>
+    <div className={intro ? "intro-screen" : "intro-screen intro-screen-out"} aria-hidden="true">
+      <div className="intro-line intro-line-top"><span>HM / 001</span><span>EST. 2007</span></div>
+      <div className="intro-name">HATEM</div>
+      <div className="intro-line intro-line-bottom"><span>DIGITAL ARCHITECT</span><span>ENTER / 2026</span></div>
+      <div className="intro-progress"><i/></div>
+    </div>
     <div className="noise" />
     <nav>
       <a className="brand" href="#top"><span>H</span>ATEM<span className="dot">.</span></a>
