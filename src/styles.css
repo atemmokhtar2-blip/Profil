@@ -78,3 +78,29 @@ html,body,#root,.site{background:#000!important;background-color:#000!important}
 /* Fine-tune hero portrait position */
 .hero-portrait{transform:translateY(-18px)}
 @media(max-width:850px){.hero-portrait{transform:translateY(-10px)}}
+
+/* Cinematic spider greeting — pure CSS/SVG-free */
+.spider-ambience{position:absolute;right:4.5vw;top:92px;width:190px;height:390px;z-index:6;pointer-events:none;overflow:visible}
+.spider-drop-line{position:absolute;top:0;left:50%;width:1px;height:118px;background:linear-gradient(#f4f1ea,rgba(244,241,234,.08));box-shadow:0 0 8px rgba(244,241,234,.35);transform-origin:top;animation:spiderDrop 8s ease-in-out infinite}
+.spider{position:absolute;left:calc(50% - 12px);top:108px;width:24px;height:20px;filter:drop-shadow(0 0 7px rgba(244,241,234,.75));animation:spiderBob 8s ease-in-out infinite}
+.spider b{position:absolute;left:7px;top:3px;width:10px;height:14px;border-radius:55% 55% 45% 45%;background:#f4f1ea;box-shadow:0 0 9px #f4f1ea}
+.spider b:after{content:"";position:absolute;left:3px;top:2px;width:2px;height:2px;border-radius:50%;background:#000;box-shadow:4px 0 #000}
+.spider .leg{position:absolute;width:14px;height:1px;background:#f4f1ea;transform-origin:left center;box-shadow:0 0 4px rgba(244,241,234,.7)}
+.spider .l1{left:8px;top:4px;transform:rotate(160deg)}.spider .l2{left:7px;top:7px;transform:rotate(145deg)}.spider .l3{left:7px;top:11px;transform:rotate(135deg)}.spider .l4{left:8px;top:15px;transform:rotate(120deg)}
+.spider .r1{right:8px;top:4px;transform:rotate(20deg)}.spider .r2{right:7px;top:7px;transform:rotate(35deg)}.spider .r3{right:7px;top:11px;transform:rotate(45deg)}.spider .r4{right:8px;top:15px;transform:rotate(60deg)}
+.welcome-web{position:absolute;left:50%;top:188px;width:154px;height:154px;transform:translateX(-50%) scale(.15);opacity:0;border-radius:50%;animation:webGreeting 8s ease-in-out infinite}
+.welcome-web:before{content:"";position:absolute;inset:0;border:1px solid rgba(244,241,234,.7);border-radius:50%;box-shadow:0 0 22px rgba(244,241,234,.14)}
+.web-radial,.web-ring{position:absolute;display:block;pointer-events:none}
+.web-radial{left:50%;top:50%;width:50%;height:1px;background:rgba(244,241,234,.55);transform-origin:left center}
+.web-radial.r1{transform:rotate(0deg)}.web-radial.r2{transform:rotate(45deg)}.web-radial.r3{transform:rotate(90deg)}.web-radial.r4{transform:rotate(135deg)}
+.web-ring{inset:18px;border:1px solid rgba(244,241,234,.42);border-radius:50%}.web-ring.ring2{inset:38px}.web-ring.ring3{inset:58px}
+.welcome-web strong{position:absolute;inset:0;display:grid;place-items:center;font-family:Tahoma,Arial,sans-serif;font-size:17px;font-weight:600;color:#f4f1ea;text-shadow:0 0 12px rgba(244,241,234,.9);direction:rtl;opacity:0;animation:welcomeText 8s ease-in-out infinite}
+@keyframes spiderDrop{0%,8%{height:0;opacity:0}12%,48%{height:118px;opacity:1}62%,100%{height:0;opacity:0}}
+@keyframes spiderBob{0%,8%{transform:translateY(-4px);opacity:0}12%,48%{transform:translateY(0);opacity:1}62%,100%{transform:translateY(-12px);opacity:0}}
+@keyframes webGreeting{0%,18%{opacity:0;transform:translateX(-50%) scale(.12)}28%,58%{opacity:1;transform:translateX(-50%) scale(1)}68%,100%{opacity:0;transform:translateX(-50%) scale(.7)}}
+@keyframes welcomeText{0%,30%{opacity:0}36%,58%{opacity:1}66%,100%{opacity:0}}
+@media(max-width:850px){
+  .spider-ambience{right:2vw;top:112px;width:145px;height:330px;transform:scale(.82);transform-origin:top right}
+  .welcome-web{top:168px}
+}
+@media(prefers-reduced-motion:reduce){.spider-ambience,.spider-drop-line,.spider,.welcome-web,.welcome-web strong{animation:none!important}.spider-ambience{opacity:1}.spider-drop-line{height:118px}.welcome-web{opacity:1;transform:translateX(-50%) scale(1)}.welcome-web strong{opacity:1}}
