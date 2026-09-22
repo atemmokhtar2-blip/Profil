@@ -9,39 +9,40 @@ const stack = ["JavaScript","TypeScript","Node.js","Python","Discord.js","Git","
 
 function ScrollRevealText({ children, className = "", start = 0.92, end = 0.38 }) {
   const text = String(children);
-  const [visible, setVisible] = useState(0);
+  const [progress, setProgress] = useState(0);
   const ref = useRef(null);
+  const isArabic = /[\u0600-\u06FF]/.test(text);
 
   useEffect(() => {
     const update = () => {
       const el = ref.current;
       if (!el) return;
-
       const rect = el.getBoundingClientRect();
       const viewport = window.innerHeight;
-      const absoluteTop = rect.top + window.scrollY;
-
-      // Reveal over a fixed scroll distance so even content near the bottom
-      // reaches 100% before the user reaches the end of the page.
-      const distance = Math.max(260, Math.min(520, viewport * 0.34));
-      const trigger = window.scrollY + viewport * start;
-      const progress = Math.max(0, Math.min(1, (trigger - absoluteTop) / distance));
-      setVisible(Math.floor(text.length * progress));
+      const trigger = viewport * start;
+      const finish = viewport * end;
+      const distance = Math.max(220, trigger - finish);
+      const p = Math.max(0, Math.min(1, (trigger - rect.top) / distance));
+      setProgress(p);
     };
-
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     update();
-
     return () => {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [text, start, end]);
+  }, [start, end]);
+
+  const reveal = isArabic
+    ? `inset(0 0 0 ${Math.round((1 - progress) * 100)}%)`
+    : `inset(0 ${Math.round((1 - progress) * 100)}% 0 0)`;
 
   return (
-    <span ref={ref} className={className} aria-label={text} dir="auto">
-      {text.slice(0, visible)}
+    <span ref={ref} className={`scroll-reveal ${className}`} dir={isArabic ? "rtl" : "ltr"}>
+      <span className="scroll-reveal-text" style={{ clipPath: reveal, WebkitClipPath: reveal }}>
+        {text}
+      </span>
     </span>
   );
 }
@@ -52,7 +53,7 @@ function App() {
   const [introLetters, setIntroLetters] = useState(0);
   const [nameStyle, setNameStyle] = useState(0);
   useEffect(() => {
-    const revealEls = document.querySelectorAll(".section, .red-break, .skill-matrix, .project, .project-card");
+    const revealEls = document.querySelectorAll(".section, .red-break, .skill-matrix");
     const observer = new IntersectionObserver((entries) => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
     revealEls.forEach(el => observer.observe(el));
     const onMove = (e) => {
