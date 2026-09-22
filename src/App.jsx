@@ -61,39 +61,6 @@ function App() {
       <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
     </section>
 
-    <section className="ticker" aria-label="skills ticker"><div>{stack.concat(stack).map((x,i)=><span key={i}>{x} <b>✦</b></span>)}</div></section><section className="red-break" aria-hidden="true"><div>BUILD SOMETHING <em>THAT SHOULDN’T EXIST.</em></div><span>HM / 002 — SYSTEMS IN MOTION</span></section>
-
-    <section id="about" className="about section">
-      <div className="section-label">02 — ABOUT</div>
-      <div className="about-grid">
-        <div><h2>Not just code.<br/><span>Systems.</span></h2></div>
-        <div className="about-text"><p>I’m a developer who likes going deeper than the interface. I care about architecture, automation, performance and the details that make software dependable.</p><p>From Discord bots to larger software ideas, I enjoy taking a blank repository and turning it into something people can actually use.</p><div className="mini-stats"><div><strong>01</strong><span>Mindset<br/>Build from zero</span></div><div><strong>∞</strong><span>Curiosity<br/>Always learning</span></div><div><strong>24/7</strong><span>Ideas<br/>Never offline</span></div></div></div>
-      </div>
-    </section>
-
-    <section id="work" className="work section">
-      <div className="section-head"><div className="section-label">03 — SELECTED WORK</div><span>03 PROJECTS / 2026</span></div><p className="section-intro">Selected systems, experiments and software built around automation, architecture and curiosity.</p>
-      <div className="projects">{projects.map(p=><a className="project" href={p.href} target="_blank" rel="noreferrer" key={p.n}><div className="project-top"><span>{p.n}</span><ArrowUpRight size={20}/></div><div><small>{p.type}</small><h3>{p.title}</h3><p>{p.text}</p></div><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div></a>)}</div>
-    </section>
-
-    <section className="capabilities section"><div className="skill-matrix"><span>TECHNICAL MATRIX / 04</span><div className="matrix-grid"><b>LANGUAGES</b><i>JS <u></u></i><i>PYTHON <u></u></i><i>TS <u></u></i><b>SYSTEMS</b><i>NODE <u></u></i><i>LINUX <u></u></i><i>APIs <u></u></i></div></div>
-      <div className="section-label">04 — CAPABILITIES</div>
-      <div className="cap-grid">
-        <article><Code2/><span>01</span><h3>Software</h3><p>Clean, scalable applications and APIs with a focus on maintainability.</p></article>
-        <article><Cpu/><span>02</span><h3>Automation</h3><p>Bots and systems that remove repetitive work and connect services together.</p></article>
-        <article><Shield/><span>03</span><h3>Security</h3><p>Security-minded engineering with curiosity for how systems behave under pressure.</p></article>
-      </div>
-    </section>
-
-    <section id="contact" className="contact section">
-      <div className="contact-glow"/><Sparkles className="spark"/>
-      <div className="section-label">05 — CONTACT</div>
-      <h2>Have an idea?<br/><em>Let’s build it.</em></h2>
-      <p>Open to interesting projects, collaborations and conversations about software.</p>
-      <a className="primary big" href="https://github.com/atemmokhtar2-blip"><Github size={18}/> Start a conversation <ArrowUpRight size={18}/></a>
-    </section>
-
-    <footer><div><b>HATEM.</b><span>Digital Architect</span></div><div className="footer-code">HM / 001<br/>BUILD — SHIP — REPEAT</div><div className="clock">{time.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})} · EGYPT</div><div className="social"><a href="https://github.com/atemmokhtar2-blip"><Github size={17}/></a><a href="#top"><ExternalLink size={17}/></a></div></footer>
   </main>
 }
 
