@@ -13,7 +13,7 @@ function App() {
   const [introLetters, setIntroLetters] = useState(0);
   const [nameStyle, setNameStyle] = useState(0);
   useEffect(() => {
-    const revealEls = document.querySelectorAll(".section, .red-break, .skill-matrix, .project");
+    const revealEls = document.querySelectorAll(".section, .red-break, .skill-matrix, .project, .project-card");
     const observer = new IntersectionObserver((entries) => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
     revealEls.forEach(el => observer.observe(el));
     const onMove = (e) => {
