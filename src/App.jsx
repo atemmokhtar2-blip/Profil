@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ArrowUpRight, Code2, Github, Linkedin, Mail, Terminal, Shield, Cpu, Sparkles, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Code2, Github, Terminal, Shield, Cpu, Sparkles, ExternalLink } from "lucide-react";
 
 const projects = [
   { n:"01", title:"Lumen", type:"Ecosystem / Automation", text:"A large-scale bot ecosystem built around automation, intelligent interactions and a modular architecture.", tags:["Node.js","Bots","Architecture"], href:"https://github.com/atemmokhtar2-blip" },
@@ -65,10 +65,10 @@ function App() {
       <div className="section-label">05 — CONTACT</div>
       <h2>Have an idea?<br/><em>Let’s build it.</em></h2>
       <p>Open to interesting projects, collaborations and conversations about software.</p>
-      <a className="primary big" href="mailto:hello@hatem.dev"><Mail size={18}/> Start a conversation <ArrowUpRight size={18}/></a>
+      <a className="primary big" href="https://github.com/atemmokhtar2-blip"><Github size={18}/> Start a conversation <ArrowUpRight size={18}/></a>
     </section>
 
-    <footer><div><b>HATEM.</b><span>Digital Architect</span></div><div className="clock">{time.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})} · EGYPT</div><div className="social"><a href="https://github.com/atemmokhtar2-blip"><Github size={17}/></a><a href="mailto:hello@hatem.dev"><Mail size={17}/></a><a href="#top"><ExternalLink size={17}/></a></div></footer>
+    <footer><div><b>HATEM.</b><span>Digital Architect</span></div><div className="clock">{time.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})} · EGYPT</div><div className="social"><a href="https://github.com/atemmokhtar2-blip"><Github size={17}/></a><a href="#top"><ExternalLink size={17}/></a></div></footer>
   </main>
 }
 
