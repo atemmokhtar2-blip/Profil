@@ -12,6 +12,7 @@ function App() {
   const [intro, setIntro] = useState(true);
   const [introLetters, setIntroLetters] = useState(0);
   const [nameStyle, setNameStyle] = useState(0);
+  const [projectProgress, setProjectProgress] = useState(0);
   useEffect(() => {
     const revealEls = document.querySelectorAll(".section, .red-break, .skill-matrix, .project, .project-card");
     const observer = new IntersectionObserver((entries) => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
@@ -35,7 +36,22 @@ function App() {
     const reveal=setTimeout(()=>setIntro(false),3600);
     document.body.classList.add("intro-lock");
     const unlock=setTimeout(()=>document.body.classList.remove("intro-lock"),3450);
-    return()=>{clearInterval(id);clearInterval(nameId);sequence.forEach(clearTimeout);clearTimeout(reveal);clearTimeout(unlock);document.body.classList.remove("intro-lock");};
+
+    const updateProjectReveal = () => {
+      const card = document.querySelector(".project-card");
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const viewport = window.innerHeight;
+      const start = viewport * 0.96;
+      const end = viewport * 0.38;
+      const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
+      setProjectProgress(progress);
+    };
+
+    window.addEventListener("scroll", updateProjectReveal, { passive: true });
+    updateProjectReveal();
+
+    return()=>{clearInterval(id);clearInterval(nameId);sequence.forEach(clearTimeout);clearTimeout(reveal);clearTimeout(unlock);window.removeEventListener("scroll", updateProjectReveal);document.body.classList.remove("intro-lock");};
   }, []);
 
   return <main className={intro ? "site intro-active" : "site"}>
@@ -69,17 +85,23 @@ function App() {
         <p>أفكار تتحول إلى أنظمة حقيقية — من البوتات والأتمتة إلى البرمجيات والهندسة الأمنية.</p>
       </div>
       <div className="project-list">
-        {projects.map((project) => (
-          <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.n}>
-            <span className="project-number">{project.n}</span>
-            <div className="project-main">
-              <span className="project-type">{project.type}</span>
-              <h3>{project.title}<ArrowUpRight size={22}/></h3>
-              <p>{project.text}</p>
-              <div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-            </div>
-          </a>
-        ))}
+        {projects.map((project) => {
+          const titleProgress = Math.max(0, Math.min(1, projectProgress * 1.65));
+          const visibleTitle = Math.floor(project.title.length * titleProgress);
+          const textProgress = Math.max(0, Math.min(1, (projectProgress - 0.22) / 0.78));
+          const visibleText = Math.floor(project.text.length * textProgress);
+          return (
+            <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.n} style={{"--project-progress": projectProgress}}>
+              <span className="project-number">{project.n}</span>
+              <div className="project-main">
+                <span className="project-type">{project.type}</span>
+                <h3 aria-label={project.title}>{project.title.slice(0, visibleTitle)}<ArrowUpRight size={22}/></h3>
+                <p aria-label={project.text}>{project.text.slice(0, visibleText)}</p>
+                <div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </section>
   </main>
