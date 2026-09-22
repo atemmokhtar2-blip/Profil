@@ -69,3 +69,9 @@ nav{padding:0 5vw}.navlinks{display:none}.status{font-size:8px}.hero{padding:145
 @keyframes nameSway{0%{transform:translateX(-22px) rotate(-4deg)}100%{transform:translateX(22px) rotate(4deg)}}
 @media(max-width:850px){.portrait-name-spin{margin-top:16px;font-size:22px}}
 @media(prefers-reduced-motion:reduce){.portrait-name-spin{animation:none!important}}
+
+.portrait-name-spin{margin-top:18px;width:auto;height:auto;border:0!important;border-radius:0!important;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;font-size:24px;letter-spacing:.01em;color:#f4f1ea;position:relative;display:block;animation:nameSpin 3.8s linear infinite!important;transform-origin:center}
+.portrait-name-spin:before,.portrait-name-spin:after{display:none!important}
+@keyframes nameSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@media(max-width:850px){.portrait-name-spin{margin-top:14px;font-size:22px}}
+@media(prefers-reduced-motion:reduce){.portrait-name-spin{animation:none!important}}
