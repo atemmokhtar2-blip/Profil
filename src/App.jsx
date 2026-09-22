@@ -36,18 +36,18 @@ function App() {
 
     <section id="top" className="hero">
       <div className="hero-grid"/>
-      <div className="hero-portrait"><div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual" /><span className="portrait-scan"/></div><div className="portrait-meta"><span>VISUAL ID / HM-001</span><span>01 — 05</span></div></div>
+      <div className="hero-portrait" data-depth><div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /><span className="portrait-scan"/><span className="portrait-corner">HM / 001</span><span className="portrait-redline"/></div><div className="portrait-meta"><span>VISUAL ID / HM-001</span><span>01 — 05</span></div></div>
       <div className="hero-copy">
-        <p className="eyebrow"><Terminal size={14}/> DIGITAL ARCHITECT / 001 <span className="hero-accent">VISUAL SYSTEM ONLINE</span></p>
+        <p className="eyebrow"><Terminal size={14}/> DIGITAL ARCHITECT / 001 <span className="hero-accent">VISUAL SYSTEM ONLINE</span></p><div className="hero-system"><span>SYSTEM <b>ONLINE</b></span><span>NODE / SECURITY / AUTOMATION</span></div>
         <h1>I build things<br/><em>that feel alive.</em></h1>
         <p className="lead">I'm Hatem Mokhtar — a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
-        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href="https://github.com/atemmokhtar2-blip"><Github size={17}/> GitHub</a></div>
+        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href="https://github.com/atemmokhtar2-blip"><Github size={17}/> GitHub</a></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
       </div>
       <div className="hero-orbit" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div><span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span></div>
       <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
     </section>
 
-    <section className="ticker" aria-label="skills ticker"><div>{stack.concat(stack).map((x,i)=><span key={i}>{x} <b>✦</b></span>)}</div></section>
+    <section className="ticker" aria-label="skills ticker"><div>{stack.concat(stack).map((x,i)=><span key={i}>{x} <b>✦</b></span>)}</div></section><section className="red-break" aria-hidden="true"><div>BUILD SOMETHING <em>THAT SHOULDN’T EXIST.</em></div><span>HM / 002 — SYSTEMS IN MOTION</span></section>
 
     <section id="about" className="about section">
       <div className="section-label">02 — ABOUT</div>
@@ -62,7 +62,7 @@ function App() {
       <div className="projects">{projects.map(p=><a className="project" href={p.href} target="_blank" rel="noreferrer" key={p.n}><div className="project-top"><span>{p.n}</span><ArrowUpRight size={20}/></div><div><small>{p.type}</small><h3>{p.title}</h3><p>{p.text}</p></div><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div></a>)}</div>
     </section>
 
-    <section className="capabilities section">
+    <section className="capabilities section"><div className="skill-matrix"><span>TECHNICAL MATRIX / 04</span><div className="matrix-grid"><b>LANGUAGES</b><i>JS <u></u></i><i>PYTHON <u></u></i><i>TS <u></u></i><b>SYSTEMS</b><i>NODE <u></u></i><i>LINUX <u></u></i><i>APIs <u></u></i></div></div>
       <div className="section-label">04 — CAPABILITIES</div>
       <div className="cap-grid">
         <article><Code2/><span>01</span><h3>Software</h3><p>Clean, scalable applications and APIs with a focus on maintainability.</p></article>
