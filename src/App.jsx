@@ -13,6 +13,7 @@ function App() {
   const [time, setTime] = useState(new Date());
   const [intro, setIntro] = useState(true);
   const [introLetters, setIntroLetters] = useState(0);
+  const [nameStyle, setNameStyle] = useState(0);
   useEffect(() => {
     const revealEls = document.querySelectorAll(".section, .red-break, .skill-matrix, .project");
     const observer = new IntersectionObserver((entries) => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
@@ -29,13 +30,14 @@ function App() {
   }, []);
   useEffect(() => {
     const id=setInterval(()=>setTime(new Date()),1000);
+    const nameId=setInterval(()=>setNameStyle(v => (v + 1) % 6),2600);
     const sequence=[];
     for(let i=1;i<=5;i++) sequence.push(setTimeout(()=>setIntroLetters(i),260+(i-1)*300));
     for(let i=4;i>=0;i--) sequence.push(setTimeout(()=>setIntroLetters(i),2140+(4-i)*270));
     const reveal=setTimeout(()=>setIntro(false),3600);
     document.body.classList.add("intro-lock");
     const unlock=setTimeout(()=>document.body.classList.remove("intro-lock"),3450);
-    return()=>{clearInterval(id);sequence.forEach(clearTimeout);clearTimeout(reveal);clearTimeout(unlock);document.body.classList.remove("intro-lock");};
+    return()=>{clearInterval(id);clearInterval(nameId);sequence.forEach(clearTimeout);clearTimeout(reveal);clearTimeout(unlock);document.body.classList.remove("intro-lock");};
   }, []);
 
   return <main className={intro ? "site intro-active" : "site"}>
@@ -55,6 +57,7 @@ function App() {
       </div>
       <div className="hero-portrait" data-depth>
         <div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /></div>
+        <div className={`portrait-name-live name-style-${nameStyle}`} aria-label="Hatem">{["HΛTEM","HATΞM","H4TEM","HATEM.","HΛTΞM","H·A·T·E·M"][nameStyle]}</div>
       </div>
       <div className="hero-orbit" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div><span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span></div>
       <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
