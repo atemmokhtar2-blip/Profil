@@ -55,7 +55,7 @@ function App() {
         <p className="eyebrow"><Terminal size={14}/> DIGITAL ARCHITECT / 001 <span className="hero-accent">VISUAL SYSTEM ONLINE</span></p><div className="hero-system"><span>SYSTEM <b>ONLINE</b></span><span>NODE / SECURITY / AUTOMATION</span></div>
         <h1>I build things<br/><em>that feel alive.</em></h1>
         <p className="lead">I'm Hatem Mokhtar — a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
-        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href="https://github.com/atemmokhtar2-blip"><Github size={17}/> GitHub</a></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
+        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href="https://github.com/atemmokhtar2-blip"><Github size={17}/> GitHub</a></div><div className="hero-tags"><span>BOTS</span><span>SOFTWARE</span><span>SECURITY</span></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
       </div>
       <div className="hero-orbit" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div><span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span></div>
       <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
@@ -72,7 +72,7 @@ function App() {
     </section>
 
     <section id="work" className="work section">
-      <div className="section-head"><div className="section-label">03 — SELECTED WORK</div><span>03 PROJECTS / 2026</span></div>
+      <div className="section-head"><div className="section-label">03 — SELECTED WORK</div><span>03 PROJECTS / 2026</span></div><p className="section-intro">Selected systems, experiments and software built around automation, architecture and curiosity.</p>
       <div className="projects">{projects.map(p=><a className="project" href={p.href} target="_blank" rel="noreferrer" key={p.n}><div className="project-top"><span>{p.n}</span><ArrowUpRight size={20}/></div><div><small>{p.type}</small><h3>{p.title}</h3><p>{p.text}</p></div><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div></a>)}</div>
     </section>
 
@@ -93,7 +93,7 @@ function App() {
       <a className="primary big" href="https://github.com/atemmokhtar2-blip"><Github size={18}/> Start a conversation <ArrowUpRight size={18}/></a>
     </section>
 
-    <footer><div><b>HATEM.</b><span>Digital Architect</span></div><div className="clock">{time.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})} · EGYPT</div><div className="social"><a href="https://github.com/atemmokhtar2-blip"><Github size={17}/></a><a href="#top"><ExternalLink size={17}/></a></div></footer>
+    <footer><div><b>HATEM.</b><span>Digital Architect</span></div><div className="footer-code">HM / 001<br/>BUILD — SHIP — REPEAT</div><div className="clock">{time.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})} · EGYPT</div><div className="social"><a href="https://github.com/atemmokhtar2-blip"><Github size={17}/></a><a href="#top"><ExternalLink size={17}/></a></div></footer>
   </main>
 }
 
