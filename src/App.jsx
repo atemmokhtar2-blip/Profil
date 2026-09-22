@@ -12,6 +12,7 @@ const stack = ["JavaScript","TypeScript","Node.js","Python","Discord.js","Git","
 function App() {
   const [time, setTime] = useState(new Date());
   const [intro, setIntro] = useState(true);
+  const [introLetters, setIntroLetters] = useState(0);
   useEffect(() => {
     const revealEls = document.querySelectorAll(".section, .red-break, .skill-matrix, .project");
     const observer = new IntersectionObserver((entries) => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
@@ -28,19 +29,17 @@ function App() {
   }, []);
   useEffect(() => {
     const id=setInterval(()=>setTime(new Date()),1000);
-    const reveal=setTimeout(()=>setIntro(false),3200);
+    const sequence=[];
+    for(let i=1;i<=5;i++) sequence.push(setTimeout(()=>setIntroLetters(i),260+(i-1)*300));
+    for(let i=4;i>=0;i--) sequence.push(setTimeout(()=>setIntroLetters(i),2140+(4-i)*270));
+    const reveal=setTimeout(()=>setIntro(false),3600);
     document.body.classList.add("intro-lock");
-    const unlock=setTimeout(()=>document.body.classList.remove("intro-lock"),3000);
-    return()=>{clearInterval(id);clearTimeout(reveal);clearTimeout(unlock);document.body.classList.remove("intro-lock");};
+    const unlock=setTimeout(()=>document.body.classList.remove("intro-lock"),3450);
+    return()=>{clearInterval(id);sequence.forEach(clearTimeout);clearTimeout(reveal);clearTimeout(unlock);document.body.classList.remove("intro-lock");};
   }, []);
 
   return <main className={intro ? "site intro-active" : "site"}>
-    <div className={intro ? "intro-screen" : "intro-screen intro-screen-out"} aria-hidden="true">
-      <div className="intro-line intro-line-top"><span>HM / 001</span><span>EST. 2007</span></div>
-      <div className="intro-name">{[..."HATEM"].map((letter, i) => <span key={letter + i} style={{"--i": i}}>{letter}</span>)}</div>
-      <div className="intro-line intro-line-bottom"><span>DIGITAL ARCHITECT</span><span>ENTER / 2026</span></div>
-      
-    </div>
+    <div className={intro ? "intro-screen" : "intro-screen intro-screen-out"} aria-hidden="true"><div className="intro-name">{[..."HATEM"].slice(0, introLetters).map((letter, i) => <span key={letter + i}>{letter}</span>)}</div></div>
     <div className="noise" /><div className="scroll-progress" aria-hidden="true"><i/></div>
     <nav>
       <a className="brand" href="#top"><span>H</span>ATEM<span className="dot">.</span></a>
