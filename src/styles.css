@@ -33,7 +33,7 @@ nav{padding:0 5vw}.navlinks{display:none}.status{font-size:8px}.hero{padding:145
 .portrait-name{width:196px;height:86px;bottom:-60px;justify-content:center;align-items:center}.portrait-name-text{position:relative;z-index:3;display:block;margin-top:-2px;font-size:clamp(29px,3.4vw,46px);line-height:1;color:var(--text);white-space:nowrap}.portrait-arrow{right:12px;top:10px;font-size:25px;line-height:1;transform:rotate(8deg);z-index:4}.portrait-arrow::after{content:"";position:absolute;right:17px;top:21px;width:24px;height:1px;background:var(--acid);transform:rotate(-38deg);transform-origin:right center}.portrait-caption{left:13px;bottom:9px;font-size:7px;letter-spacing:.1em}.portrait-name::after{left:13px;bottom:5px;width:28px}
 @media(max-width:850px){.hero-portrait{margin-bottom:34px}.hero-copy{position:relative;z-index:4}.hero h1{position:relative;z-index:5}}
 .contact{overflow:hidden}.contact:before{content:"HM / 005";position:absolute;right:7vw;top:22%;font:9px "DM Mono";letter-spacing:.2em;color:#444}.contact-glow{background:var(--acid)}
-.hero-portrait{top:12%}@media(max-width:850px){.hero-portrait{top:auto}}
+.hero-portrait{top:8%}@media(max-width:850px){.hero{padding-top:110px}.hero-portrait{top:auto}}
 @media(max-width:850px){.hero-system{position:relative;right:auto;top:auto;margin:24px 0 0}.hero-coordinates{margin-top:18px}.red-break{min-height:58vh;padding:12vw 6vw}.red-break div{font-size:clamp(44px,12vw,82px)}.matrix-grid{grid-template-columns:1fr 1fr}.matrix-grid b{grid-column:span 2}.hero-portrait{height:52vh}.portrait-corner{top:12px;right:12px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
 
