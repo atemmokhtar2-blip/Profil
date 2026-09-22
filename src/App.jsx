@@ -17,25 +17,31 @@ function ScrollRevealText({ children, className = "", start = 0.92, end = 0.38 }
     const update = () => {
       const el = ref.current;
       if (!el) return;
+
       const rect = el.getBoundingClientRect();
       const viewport = window.innerHeight;
-      const trigger = viewport * start;
-      const finish = viewport * end;
-      const distance = Math.max(260, trigger - finish);
-      const raw = Math.max(0, Math.min(1, (trigger - rect.top) / distance));
-      const steps = Math.max(1, text.length);
-      setProgress(Math.floor(raw * steps) / steps);
+
+      // The reveal follows the user's scroll continuously:
+      // starts as the block enters the lower part of the viewport,
+      // and finishes as the block moves toward the upper/middle area.
+      const startY = viewport * start;
+      const endY = viewport * end;
+      const distance = Math.max(320, startY - endY);
+      const raw = (startY - rect.top) / distance;
+      const next = Math.max(0, Math.min(1, raw));
+
+      setProgress(prev => Math.abs(prev - next) > 0.001 ? next : prev);
     };
 
+    update();
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
-    update();
 
     return () => {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [text, start, end]);
+  }, [start, end]);
 
   const clip = isArabic
     ? `inset(0 0 0 ${Math.round((1 - progress) * 100)}%)`
@@ -46,7 +52,7 @@ function ScrollRevealText({ children, className = "", start = 0.92, end = 0.38 }
       ref={ref}
       className={`scroll-reveal ${className}`}
       dir={isArabic ? "rtl" : "ltr"}
-      style={{ "--reveal-clip": clip }}
+      style={{ clipPath: clip, WebkitClipPath: clip }}
       aria-label={text}
     >
       {text}
