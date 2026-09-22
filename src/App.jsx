@@ -102,9 +102,9 @@ function App() {
       <div className="projects-heading">
         <div>
           <span className="section-kicker">SELECTED WORK / 01</span>
-          <h2>المشاريع<span>.</span></h2>
+          <h2><ScrollRevealText>المشاريع</ScrollRevealText><span>.</span></h2>
         </div>
-        <p>أفكار تتحول إلى أنظمة حقيقية — من البوتات والأتمتة إلى البرمجيات والهندسة الأمنية.</p>
+        <p><ScrollRevealText start={0.90} end={0.32}>أفكار تتحول إلى أنظمة حقيقية — من البوتات والأتمتة إلى البرمجيات والهندسة الأمنية.</ScrollRevealText></p>
       </div>
       <div className="project-list">
         {projects.map((project) => {
