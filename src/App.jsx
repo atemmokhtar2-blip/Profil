@@ -1,0 +1,75 @@
+import React, { useEffect, useState } from "react";
+import { ArrowUpRight, Code2, Github, Linkedin, Mail, Terminal, Shield, Cpu, Sparkles, ExternalLink } from "lucide-react";
+
+const projects = [
+  { n:"01", title:"Lumen", type:"Ecosystem / Automation", text:"A large-scale bot ecosystem built around automation, intelligent interactions and a modular architecture.", tags:["Node.js","Bots","Architecture"], href:"https://github.com/atemmokhtar2-blip" },
+  { n:"02", title:"Bot Systems", type:"Engineering", text:"Custom bots and backend systems designed to turn repetitive workflows into reliable software.", tags:["JavaScript","APIs","Backend"], href:"https://github.com/atemmokhtar2-blip" },
+  { n:"03", title:"Security Lab", type:"Research / Learning", text:"Experiments around application security, defensive engineering and understanding how systems break.", tags:["Security","Linux","Web"], href:"https://github.com/atemmokhtar2-blip" }
+];
+
+const stack = ["JavaScript","TypeScript","Node.js","Python","Discord.js","Git","Linux","APIs","Automation","Cybersecurity"];
+
+function App() {
+  const [time, setTime] = useState(new Date());
+  useEffect(() => { const id=setInterval(()=>setTime(new Date()),1000); return()=>clearInterval(id); }, []);
+
+  return <main>
+    <div className="noise" />
+    <nav>
+      <a className="brand" href="#top"><span>H</span>ATEM<span className="dot">.</span></a>
+      <div className="navlinks"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+      <a className="status" href="https://github.com/atemmokhtar2-blip"><i/> Available for building</a>
+    </nav>
+
+    <section id="top" className="hero">
+      <div className="hero-grid"/>
+      <div className="hero-copy">
+        <p className="eyebrow"><Terminal size={14}/> DIGITAL ARCHITECT / 001</p>
+        <h1>I build things<br/><em>that feel alive.</em></h1>
+        <p className="lead">I'm Hatem Mokhtar — a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
+        <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href="https://github.com/atemmokhtar2-blip"><Github size={17}/> GitHub</a></div>
+      </div>
+      <div className="hero-orbit" aria-hidden="true">
+        <div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div>
+        <span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span>
+      </div>
+      <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
+    </section>
+
+    <section className="ticker" aria-label="skills ticker"><div>{stack.concat(stack).map((x,i)=><span key={i}>{x} <b>✦</b></span>)}</div></section>
+
+    <section id="about" className="about section">
+      <div className="section-label">02 — ABOUT</div>
+      <div className="about-grid">
+        <div><h2>Not just code.<br/><span>Systems.</span></h2></div>
+        <div className="about-text"><p>I’m a developer who likes going deeper than the interface. I care about architecture, automation, performance and the details that make software dependable.</p><p>From Discord bots to larger software ideas, I enjoy taking a blank repository and turning it into something people can actually use.</p><div className="mini-stats"><div><strong>01</strong><span>Mindset<br/>Build from zero</span></div><div><strong>∞</strong><span>Curiosity<br/>Always learning</span></div><div><strong>24/7</strong><span>Ideas<br/>Never offline</span></div></div></div>
+      </div>
+    </section>
+
+    <section id="work" className="work section">
+      <div className="section-head"><div className="section-label">03 — SELECTED WORK</div><span>03 PROJECTS / 2026</span></div>
+      <div className="projects">{projects.map(p=><a className="project" href={p.href} target="_blank" rel="noreferrer" key={p.n}><div className="project-top"><span>{p.n}</span><ArrowUpRight size={20}/></div><div><small>{p.type}</small><h3>{p.title}</h3><p>{p.text}</p></div><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div></a>)}</div>
+    </section>
+
+    <section className="capabilities section">
+      <div className="section-label">04 — CAPABILITIES</div>
+      <div className="cap-grid">
+        <article><Code2/><span>01</span><h3>Software</h3><p>Clean, scalable applications and APIs with a focus on maintainability.</p></article>
+        <article><Cpu/><span>02</span><h3>Automation</h3><p>Bots and systems that remove repetitive work and connect services together.</p></article>
+        <article><Shield/><span>03</span><h3>Security</h3><p>Security-minded engineering with curiosity for how systems behave under pressure.</p></article>
+      </div>
+    </section>
+
+    <section id="contact" className="contact section">
+      <div className="contact-glow"/><Sparkles className="spark"/>
+      <div className="section-label">05 — CONTACT</div>
+      <h2>Have an idea?<br/><em>Let’s build it.</em></h2>
+      <p>Open to interesting projects, collaborations and conversations about software.</p>
+      <a className="primary big" href="mailto:hello@hatem.dev"><Mail size={18}/> Start a conversation <ArrowUpRight size={18}/></a>
+    </section>
+
+    <footer><div><b>HATEM.</b><span>Digital Architect</span></div><div className="clock">{time.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})} · EGYPT</div><div className="social"><a href="https://github.com/atemmokhtar2-blip"><Github size={17}/></a><a href="mailto:hello@hatem.dev"><Mail size={17}/></a><a href="#top"><ExternalLink size={17}/></a></div></footer>
+  </main>
+}
+
+export default App;
