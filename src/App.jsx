@@ -13,6 +13,20 @@ function App() {
   const [time, setTime] = useState(new Date());
   const [intro, setIntro] = useState(true);
   useEffect(() => {
+    const revealEls = document.querySelectorAll(".section, .red-break, .skill-matrix, .project");
+    const observer = new IntersectionObserver((entries) => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+    const onMove = (e) => {
+      const portrait = document.querySelector(".hero-portrait");
+      if (!portrait || window.matchMedia("(max-width: 850px)").matches) return;
+      const x = (e.clientX / window.innerWidth - .5) * 10;
+      const y = (e.clientY / window.innerHeight - .5) * 8;
+      portrait.style.setProperty("--mx", `${x}px`); portrait.style.setProperty("--my", `${y}px`);
+    };
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => { observer.disconnect(); window.removeEventListener("pointermove", onMove); };
+  }, []);
+  useEffect(() => {
     const id=setInterval(()=>setTime(new Date()),1000);
     const reveal=setTimeout(()=>setIntro(false),3200);
     document.body.classList.add("intro-lock");
@@ -27,7 +41,7 @@ function App() {
       <div className="intro-line intro-line-bottom"><span>DIGITAL ARCHITECT</span><span>ENTER / 2026</span></div>
       <div className="intro-progress"><i/></div>
     </div>
-    <div className="noise" />
+    <div className="noise" /><div className="scroll-progress" aria-hidden="true"><i/></div>
     <nav>
       <a className="brand" href="#top"><span>H</span>ATEM<span className="dot">.</span></a>
       <div className="navlinks"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
