@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Code2, Github, Terminal, Shield, Cpu, Sparkles, ExternalLink, MessageCircle } from "lucide-react";
 
 const projects = [
@@ -7,26 +7,43 @@ const projects = [
 
 const stack = ["JavaScript","TypeScript","Node.js","Python","Discord.js","Git","Linux","APIs","Automation","Cybersecurity"];
 
-function ScrollRevealText({ children, className = "", start = 0.96, end = 0.38 }) {
+function ScrollRevealText({ children, className = "", start = 0.92, end = 0.38 }) {
   const text = String(children);
   const [visible, setVisible] = useState(0);
+  const ref = useRef(null);
 
   useEffect(() => {
     const update = () => {
-      const el = document.querySelector(`[data-reveal-id="${CSS.escape(text)}"]`);
+      const el = ref.current;
       if (!el) return;
+
       const rect = el.getBoundingClientRect();
       const viewport = window.innerHeight;
-      const progress = Math.max(0, Math.min(1, (viewport * start - rect.top) / (viewport * (start - end))));
+      const absoluteTop = rect.top + window.scrollY;
+
+      // Reveal over a fixed scroll distance so even content near the bottom
+      // reaches 100% before the user reaches the end of the page.
+      const distance = Math.max(260, Math.min(520, viewport * 0.34));
+      const trigger = window.scrollY + viewport * start;
+      const progress = Math.max(0, Math.min(1, (trigger - absoluteTop) / distance));
       setVisible(Math.floor(text.length * progress));
     };
+
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     update();
-    return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, [text, start, end]);
 
-  return <span className={className} data-reveal-id={text} aria-label={text}>{[...text].map((char, i) => <span key={i} className="scroll-char" style={{opacity:i < visible ? 1 : 0}}>{char === " " ? "\u00a0" : char}</span>)}</span>;
+  return (
+    <span ref={ref} className={className} aria-label={text} dir="auto">
+      {text.slice(0, visible)}
+    </span>
+  );
 }
 
 function App() {
