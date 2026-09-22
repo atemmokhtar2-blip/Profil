@@ -104,3 +104,11 @@ html,body,#root,.site{background:#000!important;background-color:#000!important}
   .welcome-web{top:168px}
 }
 @media(prefers-reduced-motion:reduce){.spider-ambience,.spider-drop-line,.spider,.welcome-web,.welcome-web strong{animation:none!important}.spider-ambience{opacity:1}.spider-drop-line{height:118px}.welcome-web{opacity:1;transform:translateX(-50%) scale(1)}.welcome-web strong{opacity:1}}
+
+/* Detailed spider silhouette */
+.spider-real{position:absolute;left:50%;top:96px;width:82px;height:82px;transform:translate(-50%,-50%);filter:drop-shadow(0 0 9px rgba(244,241,234,.65));animation:realSpiderDrop 8s ease-in-out infinite}
+.spider-real svg{width:100%;height:100%;display:block;overflow:visible}
+.spider-legs{transform-origin:80px 70px;animation:legPulse 1.2s ease-in-out infinite alternate}
+@keyframes realSpiderDrop{0%,8%{transform:translate(-50%,-20px) scale(.7);opacity:0}12%,48%{transform:translate(-50%,0) scale(1);opacity:1}62%,100%{transform:translate(-50%,-18px) scale(.82);opacity:0}}
+@keyframes legPulse{from{transform:scaleY(.98)}to{transform:scaleY(1.02)}}
+@media(max-width:850px){.spider-real{top:90px;width:72px;height:72px}}
