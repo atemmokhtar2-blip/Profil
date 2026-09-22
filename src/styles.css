@@ -63,12 +63,6 @@ nav{padding:0 5vw}.navlinks{display:none}.status{font-size:8px}.hero{padding:145
 @media(max-width:850px){.portrait-name-spin{width:76px;height:76px;margin-top:16px;font-size:16px}}
 @media(prefers-reduced-motion:reduce){.portrait-name-spin,.portrait-name-spin:before{animation:none}}
 
-/* Minimal portrait name: no circle, no data labels */
-.portrait-name-spin{margin-top:18px;width:auto;height:auto;border:0!important;border-radius:0!important;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;font-size:24px;letter-spacing:.01em;color:#f4f1ea;position:relative;display:block;animation:nameSway 2.2s ease-in-out infinite alternate!important}
-.portrait-name-spin:before,.portrait-name-spin:after{display:none!important}
-@keyframes nameSway{0%{transform:translateX(-22px) rotate(-4deg)}100%{transform:translateX(22px) rotate(4deg)}}
-@media(max-width:850px){.portrait-name-spin{margin-top:16px;font-size:22px}}
-@media(prefers-reduced-motion:reduce){.portrait-name-spin{animation:none!important}}
 
 .portrait-name-spin{margin-top:18px;width:auto;height:auto;border:0!important;border-radius:0!important;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;font-size:24px;letter-spacing:.01em;color:#f4f1ea;position:relative;display:block;animation:nameSpin 3.8s linear infinite!important;transform-origin:center}
 .portrait-name-spin:before,.portrait-name-spin:after{display:none!important}
@@ -76,10 +70,3 @@ nav{padding:0 5vw}.navlinks{display:none}.status{font-size:8px}.hero{padding:145
 @media(max-width:850px){.portrait-name-spin{margin-top:14px;font-size:22px}}
 @media(prefers-reduced-motion:reduce){.portrait-name-spin{animation:none!important}}
 
-/* Final portrait/name layout: name is physically attached below the image */
-.hero-portrait{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important}
-.hero-portrait .portrait-frame{flex:0 0 auto!important}
-.hero-portrait .portrait-name-spin{display:block!important;position:static!important;margin:14px 0 0!important;width:max-content!important;height:auto!important;padding:0!important;border:0!important;border-radius:0!important;transform-origin:center!important;font-family:Georgia,"Times New Roman",serif!important;font-style:italic!important;font-weight:700!important;font-size:24px!important;line-height:1!important;letter-spacing:.01em!important;color:#f4f1ea!important;animation:nameSpin 3.8s linear infinite!important}
-.hero-portrait .portrait-name-spin:before,.hero-portrait .portrait-name-spin:after{display:none!important;content:none!important}
-@keyframes nameSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@media(max-width:850px){.hero-portrait .portrait-name-spin{margin-top:12px!important;font-size:22px!important}}
