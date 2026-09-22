@@ -37,7 +37,7 @@ function App() {
   return <main className={intro ? "site intro-active" : "site"}>
     <div className={intro ? "intro-screen" : "intro-screen intro-screen-out"} aria-hidden="true">
       <div className="intro-line intro-line-top"><span>HM / 001</span><span>EST. 2007</span></div>
-      <div className="intro-name">HATEM</div>
+      <div className="intro-name">{[..."HATEM"].map((letter, i) => <span key={letter + i} style={{"--i": i}}>{letter}</span>)}</div>
       <div className="intro-line intro-line-bottom"><span>DIGITAL ARCHITECT</span><span>ENTER / 2026</span></div>
       <div className="intro-progress"><i/></div>
     </div>
