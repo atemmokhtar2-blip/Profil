@@ -51,7 +51,6 @@ function App() {
       <div className="hero-grid"/>
       <div className="hero-portrait" data-depth>
         <div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /></div>
-        <div className="portrait-name-spin" aria-label="Hatem">Hatem</div>
       </div>
       <div className="hero-copy">
         <h1>I build things<br/><em>that feel alive.</em></h1>
