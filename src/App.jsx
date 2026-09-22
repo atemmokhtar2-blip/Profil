@@ -61,6 +61,29 @@ function App() {
       <div className="hero-orbit" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div><span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span></div>
       <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
     </section>
+
+    <section id="work" className="projects-section">
+      <div className="projects-heading">
+        <div>
+          <span className="section-kicker">SELECTED WORK / 01—03</span>
+          <h2>المشاريع<span>.</span></h2>
+        </div>
+        <p>أفكار تتحول إلى أنظمة حقيقية — من البوتات والأتمتة إلى البرمجيات والهندسة الأمنية.</p>
+      </div>
+      <div className="project-list">
+        {projects.map((project) => (
+          <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.n}>
+            <span className="project-number">{project.n}</span>
+            <div className="project-main">
+              <span className="project-type">{project.type}</span>
+              <h3>{project.title}<ArrowUpRight size={22}/></h3>
+              <p>{project.text}</p>
+              <div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
   </main>
 }
 
