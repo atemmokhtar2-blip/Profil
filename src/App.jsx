@@ -44,14 +44,14 @@ function App() {
     <nav>
       <a className="brand" href="#top"><span>H</span>ATEM<span className="dot">.</span></a>
       <div className="navlinks"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-      <a className="status" href="https://github.com/atemmokhtar2-blip"><i/> Available for building</a>
+
     </nav>
 
     <section id="top" className="hero">
       <div className="hero-grid"/>
       <div className="hero-portrait" data-depth><div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual portrait" /><span className="portrait-scan"/><span className="portrait-corner">HM / 001</span><span className="portrait-redline"/></div><div className="portrait-meta"><span>VISUAL ID / HM-001</span><span>01 — 05</span></div></div>
       <div className="hero-copy">
-        <p className="eyebrow"><Terminal size={14}/> DIGITAL ARCHITECT / 001 <span className="hero-accent">VISUAL SYSTEM ONLINE</span></p><div className="hero-system"><span>SYSTEM <b>ONLINE</b></span><span>NODE / SECURITY / AUTOMATION</span></div>
+        <p className="eyebrow"><Terminal size={14}/> DIGITAL ARCHITECT / 001</p><div className="hero-system"><span>SYSTEM <b>ONLINE</b></span><span>NODE / SECURITY / AUTOMATION</span></div>
         <h1>I build things<br/><em>that feel alive.</em></h1>
         <p className="lead">I'm Hatem Mokhtar — a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
         <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href="https://github.com/atemmokhtar2-blip"><Github size={17}/> GitHub</a></div><div className="hero-tags"><span>BOTS</span><span>SOFTWARE</span><span>SECURITY</span></div><div className="hero-coordinates">29.98° N / 31.13° E <span>—</span> BUILD MODE</div>
