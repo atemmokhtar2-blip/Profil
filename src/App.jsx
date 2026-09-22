@@ -36,16 +36,14 @@ function App() {
 
     <section id="top" className="hero">
       <div className="hero-grid"/>
+      <div className="hero-portrait"><div className="portrait-frame"><img src="/hatem-face.webp" alt="Hatem visual" /><span className="portrait-scan"/></div><div className="portrait-meta"><span>VISUAL ID / HM-001</span><span>01 — 05</span></div></div>
       <div className="hero-copy">
-        <p className="eyebrow"><Terminal size={14}/> DIGITAL ARCHITECT / 001</p>
+        <p className="eyebrow"><Terminal size={14}/> DIGITAL ARCHITECT / 001 <span className="hero-accent">VISUAL SYSTEM ONLINE</span></p>
         <h1>I build things<br/><em>that feel alive.</em></h1>
         <p className="lead">I'm Hatem Mokhtar — a developer focused on bots, software engineering and the craft of turning ambitious ideas into real systems.</p>
         <div className="actions"><a className="primary" href="#work">Explore my work <ArrowUpRight size={17}/></a><a className="secondary" href="https://github.com/atemmokhtar2-blip"><Github size={17}/> GitHub</a></div>
       </div>
-      <div className="hero-orbit" aria-hidden="true">
-        <div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div>
-        <span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span>
-      </div>
+      <div className="hero-orbit" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><Code2 size={38}/><span>BUILD</span></div><span className="float f1">JS</span><span className="float f2">NODE</span><span className="float f3">SEC</span></div>
       <div className="scroll">SCROLL TO DISCOVER <span>↓</span></div>
     </section>
 
