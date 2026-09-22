@@ -566,19 +566,78 @@ html,body,#root,.site{background:#000!important;background-color:#000!important}
 .project-card.is-visible{opacity:1;transform:translateY(0);filter:blur(0)}
 
 
-/* Clean text reveal */
-.projects-heading p,
-.project-main p{
+
+/* Stable scroll reveal: reveal the complete text without splitting Arabic glyphs */
+.scroll-reveal{
+  display:inline;
+  position:relative;
+  unicode-bidi:plaintext;
+}
+.scroll-reveal-text{
+  display:inline;
+  clip-path:inset(0 100% 0 0);
+  -webkit-clip-path:inset(0 100% 0 0);
+  will-change:clip-path;
+}
+.projects-heading p .scroll-reveal,
+.project-main p .scroll-reveal{
   direction:rtl;
   unicode-bidi:plaintext;
-  white-space:normal!important;
+  white-space:normal;
   overflow-wrap:anywhere;
 }
-.project-main h3,
-.project-type,
-.project-tags{
+.project-main h3 .scroll-reveal,
+.project-type .scroll-reveal,
+.project-tags .scroll-reveal,
+.hero-tags .scroll-reveal{
   direction:ltr;
+  unicode-bidi:plaintext;
+}
+.project-main p{
+  max-width:650px;
+  line-height:1.9;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+.projects-heading p{
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:normal;
 }
 .project-card{
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
   overflow:hidden;
+}
+.project-tags{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+.project-tags > span{
+  border:1px solid #292a2f;
+  padding:7px 9px;
+}
+.project-tags .scroll-reveal-text{
+  border:0!important;
+  padding:0!important;
+  background:transparent!important;
+}
+.hero-tags > span .scroll-reveal-text{
+  border:0!important;
+  padding:0!important;
+  background:transparent!important;
+}
+@media(max-width:850px){
+  .project-main p{
+    max-width:100%;
+    font-size:14px;
+    line-height:2;
+  }
+  .projects-heading p{
+    max-width:100%;
+    line-height:1.9;
+  }
 }
