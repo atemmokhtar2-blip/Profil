@@ -51,7 +51,6 @@ function App() {
   const [intro, setIntro] = useState(true);
   const [introLetters, setIntroLetters] = useState(0);
   const [nameStyle, setNameStyle] = useState(0);
-  const [projectProgress, setProjectProgress] = useState(0);
   useEffect(() => {
     const revealEls = document.querySelectorAll(".section, .red-break, .skill-matrix, .project, .project-card");
     const observer = new IntersectionObserver((entries) => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
@@ -76,21 +75,7 @@ function App() {
     document.body.classList.add("intro-lock");
     const unlock=setTimeout(()=>document.body.classList.remove("intro-lock"),3450);
 
-    const updateProjectReveal = () => {
-      const card = document.querySelector(".project-card");
-      if (!card) return;
-      const rect = card.getBoundingClientRect();
-      const viewport = window.innerHeight;
-      const start = viewport * 0.96;
-      const end = viewport * 0.38;
-      const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
-      setProjectProgress(progress);
-    };
-
-    window.addEventListener("scroll", updateProjectReveal, { passive: true });
-    updateProjectReveal();
-
-    return()=>{clearInterval(id);clearInterval(nameId);sequence.forEach(clearTimeout);clearTimeout(reveal);clearTimeout(unlock);window.removeEventListener("scroll", updateProjectReveal);document.body.classList.remove("intro-lock");};
+    return()=>{clearInterval(id);clearInterval(nameId);sequence.forEach(clearTimeout);clearTimeout(reveal);clearTimeout(unlock);document.body.classList.remove("intro-lock");};
   }, []);
 
   return <main className={intro ? "site intro-active" : "site"}>
@@ -126,7 +111,7 @@ function App() {
       <div className="project-list">
         {projects.map((project) => {
           return (
-            <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.n} style={{"--project-progress": projectProgress}}>
+            <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.n}>
               <span className="project-number">{project.n}</span>
               <div className="project-main">
                 <span className="project-type"><ScrollRevealText>{project.type}</ScrollRevealText></span>
