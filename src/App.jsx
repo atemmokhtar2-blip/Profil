@@ -26,7 +26,7 @@ function ScrollRevealText({ children, className = "", start = 0.96, end = 0.38 }
     return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
   }, [text, start, end]);
 
-  return <span className={className} data-reveal-id={text} aria-label={text}>{[...text].map((char, i) => <span key={i} className="scroll-char">{i < visible ? char : char === " " ? "\u00a0" : ""}</span>)}</span>;
+  return <span className={className} data-reveal-id={text} aria-label={text}>{[...text].map((char, i) => <span key={i} className="scroll-char" style={{opacity:i < visible ? 1 : 0}}>{char === " " ? "\u00a0" : char}</span>)}</span>;
 }
 
 function App() {
