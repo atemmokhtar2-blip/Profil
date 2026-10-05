@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "deploy": "wrangler deploy",
-    "preview": "wrangler dev"
+    "build": "node build.js",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
   },
   "devDependencies": {
     "wrangler": "4.147.0"
