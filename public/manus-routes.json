@@ -1,0 +1,6 @@
+{
+  "routes": [
+    { "path": "/", "title": "Hatem — Home" },
+    { "path": "/contact", "title": "Hatem — Contact" }
+  ]
+}
