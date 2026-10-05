@@ -140,3 +140,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .contact-value { color: var(--muted); text-decoration: none; transition: color .2s ease; }
 .contact-value:hover { color: var(--red); }
+.hero-role { margin: 18px 0 0; color: var(--white); font-size: 12px; font-weight: 800; letter-spacing: .24em; }
+.hero-role span { color: var(--red); padding: 0 8px; }
+.hero-mantra { margin: 20px 0 0; color: #d5d5d5; font-family: 'Bebas Neue', Impact, sans-serif; font-size: 25px; line-height: .95; letter-spacing: .08em; transform: skew(-8deg); text-shadow: 2px 2px 0 rgba(242,13,26,.45); }
+.hero-mantra em { color: var(--white); font-style: normal; }
+@media (max-width: 520px) {
+  .hero-role { font-size: 10px; letter-spacing: .18em; }
+  .hero-mantra { margin-top: 16px; font-size: 21px; }
+}
