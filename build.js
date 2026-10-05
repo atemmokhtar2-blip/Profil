@@ -9,11 +9,9 @@ fs.mkdirSync(contactDir, { recursive: true });
 
 const copies = [
   ['index.html', path.join(publicDir, 'index.html')],
-  ['contact.html', path.join(publicDir, 'contact.html')],
   ['contact.html', path.join(contactDir, 'index.html')],
   ['styles.css', path.join(publicDir, 'styles.css')],
   ['script.js', path.join(publicDir, 'script.js')],
-  ['_redirects', path.join(publicDir, '_redirects')],
 ];
 
 for (const [source, destination] of copies) {
